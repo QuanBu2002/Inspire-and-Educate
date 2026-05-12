@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inspire & Educate — Ending Period Poverty in the Bay Area</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* =========== Homepage-specific =========== */
+
+/* Hero */
+.hero {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 4rem 0 6rem;
+  overflow: hidden;
+}
+
+.hero-bg-shape {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(circle at 40% 40%, var(--blush) 0%, var(--cream) 70%);
+  border-radius: 50%;
+  opacity: 0.6;
+  z-index: 0;
+  animation: float 20s ease-in-out infinite;
+}
+
+.hero-bg-shape-2 {
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 50%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(232, 133, 123, 0.15) 0%, transparent 60%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 20px) scale(1.05); }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  margin-bottom: 2rem;
+  animation: fadeUp 1s ease-out;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--coral-deep);
+}
+
+.hero-title-underline {
+  display: inline-block;
+  position: relative;
+}
+
+.hero-title-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.08em;
+  background: var(--coral);
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.hero-lede {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 1s ease-out 0.2s both;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 1s ease-out 0.4s both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero visual - asymmetric card stack */
+.hero-visual {
+  position: relative;
+  height: 480px;
+  animation: fadeUp 1.2s ease-out 0.3s both;
+}
+
+.hero-card {
+  position: absolute;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(92, 34, 56, 0.25);
+  transition: transform 0.5s ease;
+}
+
+.hero-card-1 {
+  top: 0;
+  right: 0;
+  width: 75%;
+  height: 65%;
+  background: linear-gradient(135deg, var(--coral) 0%, var(--coral-deep) 100%);
+  transform: rotate(3deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-card-1 svg {
+  width: 60%;
+  height: auto;
+}
+
+.hero-card-2 {
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  height: 50%;
+  background: var(--cream-deep);
+  transform: rotate(-4deg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(92, 34, 56, 0.1);
+}
+
+.hero-card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.hero-stat-big {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--wine);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-soft);
+}
+
+/* Stats band */
+.stats {
+  background: var(--wine);
+  color: var(--cream);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 133, 123, 0.15) 0%, transparent 70%);
+}
+
+.stats-header {
+  max-width: 700px;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.stats-header .eyebrow {
+  color: var(--blush);
+}
+
+.stats-header .eyebrow::before {
+  background: var(--blush);
+}
+
+.stats-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--cream);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+.stat-card {
+  border-top: 1px solid rgba(250, 243, 236, 0.2);
+  padding-top: 1.5rem;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1;
+  color: var(--coral);
+  margin-bottom: 1rem;
+}
+
+.stat-text {
+  color: rgba(250, 243, 236, 0.85);
+  font-size: 0.95rem;
+  max-width: 280px;
+}
+
+/* Mission section */
+.mission {
+  padding: 8rem 0;
+  position: relative;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.mission-aside {
+  position: sticky;
+  top: 120px;
+}
+
+.mission-aside h2 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.mission-aside p {
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+
+.mission-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--wine);
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--coral);
+}
+
+.why-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.why-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(92, 34, 56, 0.1);
+}
+
+.why-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--coral-deep);
+  line-height: 1;
+  font-style: italic;
+}
+
+.why-item h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--wine);
+}
+
+.why-item p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* CTA band */
+.cta-band {
+  background: linear-gradient(135deg, var(--blush) 0%, var(--cream-deep) 100%);
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-band-content {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-band h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1.5rem;
+}
+
+.cta-band p {
+  color: var(--ink-soft);
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+}
+
+.cta-band-deco {
+  position: absolute;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: rgba(212, 99, 79, 0.1);
+  font-size: 14rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.cta-band-deco-1 { top: -30px; left: -30px; }
+.cta-band-deco-2 { bottom: -80px; right: -30px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-visual { height: 360px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .mission-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .mission-aside { position: static; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-mark"></span>
+    Inspire & Educate
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="get-involved.html">Get Involved</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="get-involved.html#donate" class="nav-cta">Donate</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-bg-shape-2"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">A Bay Area Nonprofit · Est. 2024</span>
+        <h1 class="hero-title">
+          Dignity is <em>not</em> a <span class="hero-title-underline">luxury.</span>
+        </h1>
+        <p class="hero-lede">
+          One in five women in the United States can't afford menstrual products. We work to change that — distributing supplies, raising awareness, and restoring dignity to vulnerable communities across the Bay Area.
+        </p>
+        <div class="hero-ctas">
+          <a href="get-involved.html#donate" class="btn btn-primary">
+            Donate Now <span class="btn-arrow">→</span>
+          </a>
+          <a href="about.html" class="btn btn-secondary">Our Story</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card hero-card-1">
+          <!-- Inline SVG illustration: abstract bloom -->
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="petal" cx="50%" cy="50%">
+                <stop offset="0%" stop-color="#FAF3EC" stop-opacity="0.95"/>
+                <stop offset="100%" stop-color="#FAF3EC" stop-opacity="0.3"/>
+              </radialGradient>
+            </defs>
+            <g transform="translate(100 100)">
+              <ellipse cx="0" cy="-40" rx="20" ry="40" fill="url(#petal)" transform="rotate(0)"/>
+              <ellipse cx="0" cy="-40" rx="20" ry="40" fill="url(#petal)" transform="rotate(60)"/>
+              <ellipse cx="0" cy="-40" rx="20" ry="40" fill="url(#petal)" transform="rotate(120)"/>
+              <ellipse cx="0" cy="-40" rx="20" ry="40" fill="url(#petal)" transform="rotate(180)"/>
+              <ellipse cx="0" cy="-40" rx="20" ry="40" fill="url(#petal)" transform="rotate(240)"/>
+              <ellipse cx="0" cy="-40" rx="20" ry="40" fill="url(#petal)" transform="rotate(300)"/>
+              <circle r="18" fill="#FAF3EC"/>
+              <circle r="8" fill="#5C2238"/>
+            </g>
+          </svg>
+        </div>
+        <div class="hero-card hero-card-2">
+          <span class="hero-stat-label">Period Poverty in the US</span>
+          <div>
+            <div class="hero-stat-big">21%</div>
+            <p style="font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.5rem;">of women report being unable to afford sanitary products in the past year.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== STATS ============== -->
+<section class="stats">
+  <div class="container">
+    <div class="stats-header">
+      <span class="eyebrow">The Scale of the Problem</span>
+      <h2>Period poverty isn't a faraway crisis. It's here, in Santa Clara County.</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">500M</div>
+        <p class="stat-text">Women and girls worldwide lack access to clean menstrual health products.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10,711</div>
+        <p class="stat-text">People are experiencing homelessness in Santa Clara County — 28% of them are women.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">64%</div>
+        <p class="stat-text">Of women in the US have reported problems affording menstrual products.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== MISSION / WHY ============== -->
+<section class="mission">
+  <div class="container">
+    <div class="mission-grid">
+      <aside class="mission-aside">
+        <span class="eyebrow">Why It Matters</span>
+        <h2>The cost of going without.</h2>
+        <p>When women and girls can't access menstrual products, they're forced into impossible choices — using toilet paper, rags, even socks. The consequences ripple outward.</p>
+        <blockquote class="mission-quote">
+          "A woman's period should never be the reason she misses school, skips work, or loses her dignity."
+        </blockquote>
+      </aside>
+
+      <ul class="why-list">
+        <li class="why-item">
+          <span class="why-num">01</span>
+          <div>
+            <h3>Lost Independence</h3>
+            <p>Without menstrual products, women cannot leave home. They lose mobility, miss work, and are unable to participate in society for days every month.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <span class="why-num">02</span>
+          <div>
+            <h3>Missed Education</h3>
+            <p>Affected youth miss school frequently, fall behind in their classwork, and feel isolated from their peers — compounding educational inequality.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <span class="why-num">03</span>
+          <div>
+            <h3>Serious Health Risks</h3>
+            <p>Many women without hygiene products use the same tampon for dangerously long periods, putting them at risk of serious infection and toxic shock.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <span class="why-num">04</span>
+          <div>
+            <h3>Loss of Dignity</h3>
+            <p>Period poverty carries a profound emotional weight — shame, anxiety, and a sense of invisibility that compounds the physical hardship.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CTA BAND ============== -->
+<section class="cta-band">
+  <span class="cta-band-deco cta-band-deco-1">“</span>
+  <span class="cta-band-deco cta-band-deco-2">”</span>
+  <div class="container">
+    <div class="cta-band-content">
+      <span class="eyebrow">Join Us</span>
+      <h2>Every product distributed is a moment of dignity restored.</h2>
+      <p>Whether you donate, volunteer, or simply spread the word — you become part of the answer.</p>
+      <div class="hero-ctas" style="justify-content: center;">
+        <a href="get-involved.html#donate" class="btn btn-primary">Make a Donation <span class="btn-arrow">→</span></a>
+        <a href="get-involved.html#volunteer" class="btn btn-secondary">Volunteer With Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Inspire & Educate</h3>
+        <p>Ending period poverty across the Bay Area through direct aid, education, and advocacy.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Take Action</h4>
+        <ul class="footer-list">
+          <li><a href="get-involved.html#donate">Donate</a></li>
+          <li><a href="get-involved.html#volunteer">Volunteer</a></li>
+          <li><a href="get-involved.html#drive">Host a Drive</a></li>
+          <li><a href="get-involved.html#spread">Spread the Word</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-list">
+          <li><a href="contact.html">Get in touch</a></li>
+          <li><a href="mailto:hello@inspireandeducate.org">hello@inspireandeducate.org</a></li>
+          <li><span style="color: rgba(250,243,236,0.5)">Bay Area, California</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Inspire & Educate · A 501(c)(3) nonprofit</span>
+      <span>Made with care in the Bay Area</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

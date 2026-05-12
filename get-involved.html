@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Involved — Inspire & Educate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+.page-intro {
+  padding: 6rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.page-intro-bg {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, var(--blush) 0%, transparent 50%);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.page-intro h1 {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.page-intro h1 em {
+  font-style: italic;
+  color: var(--coral-deep);
+}
+
+.page-intro p {
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  max-width: 580px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Way picker */
+.ways {
+  padding: 4rem 0;
+}
+
+.ways-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(92, 34, 56, 0.1);
+  padding-bottom: 1.5rem;
+}
+
+.way-tab {
+  padding: 0.6rem 1.4rem;
+  border-radius: 100px;
+  background: transparent;
+  border: 1px solid rgba(92, 34, 56, 0.15);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.way-tab:hover {
+  border-color: var(--coral-deep);
+  color: var(--wine);
+}
+
+.way-tab.active {
+  background: var(--wine);
+  color: var(--cream);
+  border-color: var(--wine);
+}
+
+/* Action section */
+.action-section {
+  padding: 5rem 0;
+  scroll-margin-top: 100px;
+}
+
+.action-header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(92, 34, 56, 0.1);
+}
+
+.action-num {
+  font-family: var(--font-display);
+  font-size: 8rem;
+  line-height: 0.8;
+  color: var(--coral);
+  font-style: italic;
+}
+
+.action-title h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 0.5rem;
+}
+
+.action-title p {
+  color: var(--ink-soft);
+  max-width: 540px;
+  font-size: 1.1rem;
+}
+
+/* Donate tiers */
+.tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.tier {
+  background: var(--cream-deep);
+  border-radius: 24px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.tier:hover {
+  border-color: var(--coral);
+  transform: translateY(-4px);
+}
+
+.tier.featured {
+  background: linear-gradient(135deg, var(--wine), var(--wine-soft));
+  color: var(--cream);
+}
+
+.tier.featured h3,
+.tier.featured .tier-amount {
+  color: var(--cream);
+}
+
+.tier-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  background: var(--coral);
+  color: var(--cream);
+  padding: 0.3rem 0.7rem;
+  border-radius: 100px;
+}
+
+.tier-amount {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--wine);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.tier h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.tier-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+.tier.featured .tier-desc { color: rgba(250, 243, 236, 0.85); }
+
+.donate-form {
+  background: var(--cream-deep);
+  padding: 2.5rem;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: end;
+}
+
+.donate-form label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-soft);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.donate-form input {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(92, 34, 56, 0.2);
+  border-radius: 100px;
+  background: var(--cream);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--wine);
+}
+
+.donate-form input:focus {
+  outline: none;
+  border-color: var(--coral-deep);
+}
+
+/* Volunteer */
+.volunteer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.volunteer-card {
+  background: var(--cream-deep);
+  padding: 2.5rem;
+  border-radius: 24px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  transition: all 0.3s ease;
+}
+
+.volunteer-card:hover {
+  background: var(--blush);
+  transform: translateY(-4px);
+}
+
+.volunteer-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--wine);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  flex-shrink: 0;
+}
+
+.volunteer-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.volunteer-card p {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+
+.volunteer-meta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--coral-deep);
+}
+
+/* Drive */
+.drive-content {
+  background: linear-gradient(135deg, var(--blush) 0%, var(--cream-deep) 100%);
+  border-radius: 32px;
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.drive-content h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.drive-content p {
+  color: var(--ink-soft);
+  margin-bottom: 1.5rem;
+}
+
+.drive-checklist {
+  list-style: none;
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+.drive-checklist li {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(92, 34, 56, 0.1);
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.drive-checklist li:last-child { border-bottom: none; }
+
+.drive-check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--coral);
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Spread */
+.spread-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.spread-card {
+  background: var(--cream-deep);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.spread-card:hover {
+  background: var(--wine);
+  color: var(--cream);
+  transform: translateY(-4px);
+}
+
+.spread-card:hover h3,
+.spread-card:hover p {
+  color: var(--cream);
+}
+
+.spread-icon {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-style: italic;
+  color: var(--coral-deep);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.spread-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.spread-card p {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 900px) {
+  .action-header { grid-template-columns: 1fr; gap: 1rem; }
+  .action-num { font-size: 5rem; }
+  .tier-grid { grid-template-columns: 1fr; }
+  .donate-form { grid-template-columns: 1fr; }
+  .volunteer-grid { grid-template-columns: 1fr; }
+  .drive-content { grid-template-columns: 1fr; padding: 2.5rem; gap: 2rem; }
+  .spread-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-mark"></span>
+    Inspire & Educate
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="get-involved.html" class="active">Get Involved</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#donate" class="nav-cta">Donate</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- INTRO -->
+<section class="page-intro">
+  <div class="page-intro-bg"></div>
+  <div class="container">
+    <span class="eyebrow">Take Action</span>
+    <h1>Be part of the <em>answer</em>.</h1>
+    <p>Whether you have five dollars or five hours, there are meaningful ways to make a difference. Pick what fits — every contribution helps restore dignity to someone in our community.</p>
+  </div>
+</section>
+
+<!-- TAB PICKER -->
+<section class="ways">
+  <div class="container">
+    <div class="ways-tabs">
+      <a href="#donate"><button class="way-tab active">Donate</button></a>
+      <a href="#volunteer"><button class="way-tab">Volunteer</button></a>
+      <a href="#drive"><button class="way-tab">Host a Drive</button></a>
+      <a href="#spread"><button class="way-tab">Spread the Word</button></a>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section class="action-section" id="donate">
+  <div class="container">
+    <div class="action-header">
+      <div class="action-num">01</div>
+      <div class="action-title">
+        <h2>Donate</h2>
+        <p>Every dollar goes directly toward purchasing menstrual products for women and girls in need across the Bay Area.</p>
+      </div>
+    </div>
+
+    <div class="tier-grid">
+      <div class="tier">
+        <div class="tier-amount">$25</div>
+        <h3>A Month of Dignity</h3>
+        <p class="tier-desc">Provides one month of menstrual products for a woman experiencing homelessness.</p>
+        <button class="btn btn-secondary" style="width: 100%; justify-content: center;">Give $25</button>
+      </div>
+      <div class="tier featured">
+        <span class="tier-badge">Most Impact</span>
+        <div class="tier-amount">$75</div>
+        <h3>A Season of Support</h3>
+        <p class="tier-desc">Supplies three months of products for one woman, or a starter kit for an entire shelter family.</p>
+        <button class="btn" style="width: 100%; justify-content: center; background: var(--coral); color: var(--cream);">Give $75</button>
+      </div>
+      <div class="tier">
+        <div class="tier-amount">$200</div>
+        <h3>A Year of Impact</h3>
+        <p class="tier-desc">Funds an entire year of supplies for one person, restoring full dignity for twelve months.</p>
+        <button class="btn btn-secondary" style="width: 100%; justify-content: center;">Give $200</button>
+      </div>
+    </div>
+
+    <div class="donate-form">
+      <div>
+        <label>Or choose your own amount</label>
+        <input type="number" placeholder="$ Custom amount" min="1">
+      </div>
+      <button class="btn btn-primary">Donate Now <span class="btn-arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section class="action-section" id="volunteer">
+  <div class="container">
+    <div class="action-header">
+      <div class="action-num">02</div>
+      <div class="action-title">
+        <h2>Volunteer</h2>
+        <p>Roll up your sleeves. We need help packing kits, running events, and getting supplies into the hands of those who need them.</p>
+      </div>
+    </div>
+
+    <div class="volunteer-grid">
+      <div class="volunteer-card">
+        <div class="volunteer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-7l-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/></svg>
+        </div>
+        <div>
+          <h3>Pack Kits</h3>
+          <p>Join our monthly packing parties where we assemble menstrual kits for distribution to local shelters and community centers.</p>
+          <span class="volunteer-meta">2-3 hrs · Monthly · In-person</span>
+        </div>
+      </div>
+      <div class="volunteer-card">
+        <div class="volunteer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        </div>
+        <div>
+          <h3>Distribute Supplies</h3>
+          <p>Help us bring kits directly to shelters, schools, and community partners throughout Santa Clara County.</p>
+          <span class="volunteer-meta">Half-day · Quarterly · In-person</span>
+        </div>
+      </div>
+      <div class="volunteer-card">
+        <div class="volunteer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div>
+          <h3>Outreach & Events</h3>
+          <p>Represent us at health fairs, school assemblies, and community events. Help spread awareness face-to-face.</p>
+          <span class="volunteer-meta">Flexible · Ongoing · Hybrid</span>
+        </div>
+      </div>
+      <div class="volunteer-card">
+        <div class="volunteer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <h3>Skilled Support</h3>
+          <p>Designers, writers, web developers, social media wizards — help us amplify our mission with your professional skills.</p>
+          <span class="volunteer-meta">Remote · Flexible · Pro Bono</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="contact.html" class="btn btn-primary">Sign Up to Volunteer <span class="btn-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- DRIVE -->
+<section class="action-section" id="drive">
+  <div class="container">
+    <div class="action-header">
+      <div class="action-num">03</div>
+      <div class="action-title">
+        <h2>Host a Drive</h2>
+        <p>Rally your school, office, or community group. Product drives are one of the most powerful ways to support our work.</p>
+      </div>
+    </div>
+
+    <div class="drive-content">
+      <div>
+        <h3>Anyone can run a drive.</h3>
+        <p>Whether you're a high schooler, a corporate team lead, or a faith community organizer, we'll help you set up a successful product drive. We provide all the materials, guidance, and pickup logistics.</p>
+        <p>Most-needed items: pads (any size), tampons (any absorbency), liners, menstrual cups, and underwear.</p>
+        <a href="contact.html" class="btn btn-primary">Start a Drive <span class="btn-arrow">→</span></a>
+      </div>
+      <ul class="drive-checklist">
+        <li><span class="drive-check">1</span><span><strong>Tell us about your drive.</strong> Send us details about your group, location, and timeline.</span></li>
+        <li><span class="drive-check">2</span><span><strong>Get the toolkit.</strong> We send posters, social graphics, FAQ sheets, and collection bins.</span></li>
+        <li><span class="drive-check">3</span><span><strong>Run the drive.</strong> Typical drives last 2–4 weeks. We're available throughout for support.</span></li>
+        <li><span class="drive-check">4</span><span><strong>We handle pickup.</strong> When you're done, we collect, sort, and distribute the products.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SPREAD -->
+<section class="action-section" id="spread">
+  <div class="container">
+    <div class="action-header">
+      <div class="action-num">04</div>
+      <div class="action-title">
+        <h2>Spread the Word</h2>
+        <p>Silence is part of what makes period poverty invisible. Help us start the conversation.</p>
+      </div>
+    </div>
+
+    <div class="spread-grid">
+      <div class="spread-card">
+        <span class="spread-icon">@</span>
+        <h3>Follow & Share</h3>
+        <p>Amplify our posts on Instagram and LinkedIn.</p>
+      </div>
+      <div class="spread-card">
+        <span class="spread-icon">✦</span>
+        <h3>Tell a Friend</h3>
+        <p>Word of mouth is how movements grow.</p>
+      </div>
+      <div class="spread-card">
+        <span class="spread-icon">§</span>
+        <h3>Advocate Locally</h3>
+        <p>Push for free products in your school or workplace.</p>
+      </div>
+      <div class="spread-card">
+        <span class="spread-icon">✉</span>
+        <h3>Subscribe</h3>
+        <p>Join our newsletter for stories and updates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Inspire & Educate</h3>
+        <p>Ending period poverty across the Bay Area through direct aid, education, and advocacy.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul class="footer-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="get-involved.html">Get Involved</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Take Action</h4>
+        <ul class="footer-list">
+          <li><a href="#donate">Donate</a></li>
+          <li><a href="#volunteer">Volunteer</a></li>
+          <li><a href="#drive">Host a Drive</a></li>
+          <li><a href="#spread">Spread the Word</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="footer-list">
+          <li><a href="contact.html">Get in touch</a></li>
+          <li><a href="mailto:hello@inspireandeducate.org">hello@inspireandeducate.org</a></li>
+          <li><span style="color: rgba(250,243,236,0.5)">Bay Area, California</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Inspire & Educate · A 501(c)(3) nonprofit</span>
+      <span>Made with care in the Bay Area</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Simple tab highlighting on scroll
+const tabs = document.querySelectorAll('.way-tab');
+const sections = document.querySelectorAll('.action-section');
+
+document.querySelectorAll('.ways-tabs a').forEach((a, i) => {
+  a.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tabs[i].classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
