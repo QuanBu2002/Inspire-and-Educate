@@ -3,280 +3,360 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About · Inspire & Educate</title>
+<title>Inspire & Educate · Bay Area Menstrual Equity Nonprofit</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-/* Page intro */
-.page-intro {
-  padding: 6rem 0 4rem;
+/* =========== Homepage-specific =========== */
+
+/* Hero */
+.hero {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
   position: relative;
+  padding: 4rem 0 6rem;
   overflow: hidden;
 }
 
-.page-intro-bg {
+.hero-bg-shape {
   position: absolute;
-  top: 0;
+  top: -10%;
   right: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(circle at 40% 40%, var(--blush) 0%, var(--cream) 70%);
+  border-radius: 50%;
+  opacity: 0.6;
+  z-index: 0;
+  animation: float 20s ease-in-out infinite;
+}
+
+.hero-bg-shape-2 {
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
   width: 50%;
-  height: 100%;
-  background: radial-gradient(circle, var(--blush) 0%, transparent 60%);
-  opacity: 0.5;
+  height: 60%;
+  background: radial-gradient(circle, rgba(232, 133, 123, 0.15) 0%, transparent 60%);
+  border-radius: 50%;
   z-index: 0;
 }
 
-.page-intro-grid {
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 20px) scale(1.05); }
+}
+
+.hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: end;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 4rem;
+  align-items: center;
   position: relative;
   z-index: 2;
 }
 
-.page-intro h1 {
-  font-size: clamp(3rem, 7vw, 6rem);
-  line-height: 0.95;
-  margin-bottom: 1.5rem;
+.hero-title {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  margin-bottom: 2rem;
+  animation: fadeUp 1s ease-out;
 }
 
-.page-intro h1 em {
+.hero-title em {
   font-style: italic;
   color: var(--coral-deep);
 }
 
-.page-intro-lede {
-  font-size: 1.25rem;
-  color: var(--ink-soft);
-  max-width: 480px;
-  padding-bottom: 1rem;
-}
-
-/* Origin story */
-.origin {
-  padding: 6rem 0;
-}
-
-.origin-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 5rem;
-}
-
-.origin-aside {
-  position: sticky;
-  top: 120px;
-  align-self: start;
-}
-
-.origin-year {
-  font-family: var(--font-display);
-  font-size: 8rem;
-  line-height: 0.9;
-  color: var(--coral);
-  font-style: italic;
-  margin-bottom: 0.5rem;
-}
-
-.origin-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--ink-soft);
-}
-
-.origin-body p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  color: var(--ink-soft);
-  line-height: 1.7;
-}
-
-.origin-body p.lede {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-style: italic;
-  color: var(--wine);
-  line-height: 1.4;
-}
-
-.origin-body p:first-letter {
-  font-family: var(--font-display);
-  float: left;
-  font-size: 4.5rem;
-  line-height: 0.85;
-  padding: 0.3rem 0.6rem 0 0;
-  color: var(--coral-deep);
-}
-
-.origin-body p.lede:first-letter,
-.origin-body p:not(:first-of-type):first-letter {
-  float: none;
-  font-size: inherit;
-  padding: 0;
-  color: inherit;
-  font-family: inherit;
-}
-
-/* Mission card */
-.mission-card {
-  background: var(--wine);
-  color: var(--cream);
-  padding: 5rem 4rem;
-  border-radius: 32px;
-  margin: 4rem auto;
-  max-width: 900px;
+.hero-title-underline {
+  display: inline-block;
   position: relative;
-  overflow: hidden;
 }
 
-.mission-card::before {
+.hero-title-underline::after {
   content: '';
   position: absolute;
-  top: -100px;
-  right: -100px;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(232, 133, 123, 0.2) 0%, transparent 70%);
+  bottom: 0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.08em;
+  background: var(--coral);
+  z-index: -1;
+  opacity: 0.6;
 }
 
-.mission-card .eyebrow {
-  color: var(--blush);
-}
-.mission-card .eyebrow::before {
-  background: var(--blush);
-}
-
-.mission-card h2 {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--cream);
-  line-height: 1.2;
-  position: relative;
-}
-
-.mission-card h2 em {
-  font-style: italic;
-  color: var(--coral);
-}
-
-/* Team */
-.team {
-  padding: 6rem 0;
-}
-
-.team-header {
-  text-align: center;
-  margin-bottom: 5rem;
-}
-
-.team-header h2 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-bottom: 1rem;
-}
-
-.team-header p {
+.hero-lede {
+  font-size: 1.15rem;
   color: var(--ink-soft);
-  max-width: 560px;
-  margin: 0 auto;
-  font-size: 1.1rem;
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 1s ease-out 0.2s both;
 }
 
-.team-section + .team-section {
-  margin-top: 5rem;
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeUp 1s ease-out 0.4s both;
 }
 
-.team-section-title {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--coral-deep);
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(92, 34, 56, 0.15);
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.team-card {
-  background: var(--cream-deep);
-  padding: 2rem;
-  border-radius: 20px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+/* Hero visual - asymmetric card stack */
+.hero-visual {
   position: relative;
+  height: 480px;
+  animation: fadeUp 1.2s ease-out 0.3s both;
+}
+
+.hero-card {
+  position: absolute;
+  border-radius: 24px;
   overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgba(92, 34, 56, 0.25);
+  transition: transform 0.5s ease;
 }
 
-.team-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px -20px rgba(92, 34, 56, 0.25);
-}
-
-.team-avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--coral), var(--coral-deep));
+.hero-card-1 {
+  top: 0;
+  right: 0;
+  width: 75%;
+  height: 65%;
+  background: linear-gradient(135deg, var(--coral) 0%, var(--coral-deep) 100%);
+  transform: rotate(3deg);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  color: var(--cream);
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
 }
 
-.team-card h3 {
+.hero-card-1 svg {
+  width: 60%;
+  height: auto;
+}
+
+.hero-card-2 {
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  height: 50%;
+  background: var(--cream-deep);
+  transform: rotate(-4deg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(92, 34, 56, 0.1);
+}
+
+.hero-card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.hero-stat-big {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 3.5rem;
   color: var(--wine);
-  margin-bottom: 0.4rem;
-  line-height: 1.2;
+  line-height: 1;
 }
 
-.team-card .role {
+.hero-stat-label {
   font-family: var(--font-mono);
   font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--coral-deep);
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.team-card .bio {
-  font-size: 0.9rem;
+  letter-spacing: 0.18em;
   color: var(--ink-soft);
-  line-height: 1.5;
 }
 
-.team-card.featured {
+/* Stats band */
+.stats {
+  background: var(--wine);
+  color: var(--cream);
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.stats::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 133, 123, 0.15) 0%, transparent 70%);
+}
+
+.stats-header {
+  max-width: 700px;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.stats-header .eyebrow {
+  color: var(--blush);
+}
+
+.stats-header .eyebrow::before {
+  background: var(--blush);
+}
+
+.stats-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--cream);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  position: relative;
+}
+
+.stat-card {
+  border-top: 1px solid rgba(250, 243, 236, 0.2);
+  padding-top: 1.5rem;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1;
+  color: var(--coral);
+  margin-bottom: 1rem;
+}
+
+.stat-text {
+  color: rgba(250, 243, 236, 0.85);
+  font-size: 0.95rem;
+  max-width: 280px;
+}
+
+/* Mission section */
+.mission {
+  padding: 8rem 0;
+  position: relative;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.mission-aside {
+  position: sticky;
+  top: 120px;
+}
+
+.mission-aside h2 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 1.5rem;
+}
+
+.mission-aside p {
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+
+.mission-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--wine);
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--coral);
+}
+
+.why-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.why-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(92, 34, 56, 0.1);
+}
+
+.why-num {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--coral-deep);
+  line-height: 1;
+  font-style: italic;
+}
+
+.why-item h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--wine);
+}
+
+.why-item p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* CTA band */
+.cta-band {
   background: linear-gradient(135deg, var(--blush) 0%, var(--cream-deep) 100%);
-  border: 1px solid rgba(212, 99, 79, 0.15);
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
 }
 
-.team-grid-2 {
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 800px;
+.cta-band-content {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
+.cta-band h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1.5rem;
+}
+
+.cta-band p {
+  color: var(--ink-soft);
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
+}
+
+.cta-band-deco {
+  position: absolute;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: rgba(212, 99, 79, 0.1);
+  font-size: 14rem;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.cta-band-deco-1 { top: -30px; left: -30px; }
+.cta-band-deco-2 { bottom: -80px; right: -30px; }
+
+/* Responsive */
 @media (max-width: 900px) {
-  .page-intro-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .origin-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .origin-aside { position: static; }
-  .origin-year { font-size: 5rem; }
-  .mission-card { padding: 3rem 2rem; }
-  .team-grid { grid-template-columns: 1fr; }
-  .team-grid-2 { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .hero-visual { height: 360px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .mission-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .mission-aside { position: static; }
 }
 </style>
 </head>
@@ -288,8 +368,8 @@
     Inspire & Educate
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="get-involved.html">Get Involved</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="get-involved.html#donate" class="nav-cta">Donate</a></li>
@@ -298,129 +378,145 @@
 
 <main>
 
-<!-- ============== INTRO ============== -->
-<section class="page-intro">
-  <div class="page-intro-bg"></div>
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-bg-shape-2"></div>
   <div class="container">
-    <div class="page-intro-grid">
+    <div class="hero-grid">
       <div>
-        <span class="eyebrow">Who We Are</span>
-        <h1>Three sisters. <em>One</em> mission.</h1>
+        <span class="eyebrow">A Bay Area Nonprofit · Est. 2024</span>
+        <h1 class="hero-title">
+          Simple &amp; <em>Necessary.</em>
+        </h1>
+        <p class="hero-lede">
+          A Bay Area nonprofit delivering menstrual products to the people who need them, quietly, consistently, every month.
+        </p>
+        <div class="hero-ctas">
+          <a href="get-involved.html#donate" class="btn btn-primary">
+            Donate Now <span class="btn-arrow">→</span>
+          </a>
+          <a href="about.html" class="btn btn-secondary">Our Story</a>
+        </div>
       </div>
-      <p class="page-intro-lede">
-        A nonprofit founded in 2024 to get menstrual products to the people who need them across the Bay Area.
-      </p>
+
+      <div class="hero-visual">
+        <div class="hero-card hero-card-1">
+          <!-- Inline SVG illustration: abstract bloom -->
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="petal" cx="50%" cy="50%">
+                <stop offset="0%" stop-color="#FAF3EC" stop-opacity="0.95"/>
+                <stop offset="100%" stop-color="#FAF3EC" stop-opacity="0.3"/>
+              </radialGradient>
+            </defs>
+            <g transform="translate(100 100)">
+              <ellipse cx="0" cy="-40" rx="20" ry="40" fill="url(#petal)" transform="rotate(0)"/>
+              <ellipse cx="0" cy="-40" rx="20" ry="40" fill="url(#petal)" transform="rotate(60)"/>
+              <ellipse cx="0" cy="-40" rx="20" ry="40" fill="url(#petal)" transform="rotate(120)"/>
+              <ellipse cx="0" cy="-40" rx="20" ry="40" fill="url(#petal)" transform="rotate(180)"/>
+              <ellipse cx="0" cy="-40" rx="20" ry="40" fill="url(#petal)" transform="rotate(240)"/>
+              <ellipse cx="0" cy="-40" rx="20" ry="40" fill="url(#petal)" transform="rotate(300)"/>
+              <circle r="18" fill="#FAF3EC"/>
+              <circle r="8" fill="#5C2238"/>
+            </g>
+          </svg>
+        </div>
+        <div class="hero-card hero-card-2">
+          <span class="hero-stat-label">Period Poverty in the US</span>
+          <div>
+            <div class="hero-stat-big">21%</div>
+            <p style="font-size: 0.85rem; color: var(--ink-soft); margin-top: 0.5rem;">of women report being unable to afford sanitary products in the past year.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============== ORIGIN ============== -->
-<section class="origin">
+<!-- ============== STATS ============== -->
+<section class="stats">
   <div class="container">
-    <div class="origin-grid">
-      <aside class="origin-aside">
-        <div class="origin-year">'24</div>
-        <span class="origin-label">Our Origin Story</span>
+    <div class="stats-header">
+      <span class="eyebrow">The Need</span>
+      <h2>Why this work matters.</h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">500M</div>
+        <p class="stat-text">Women and girls worldwide lack access to clean menstrual health products.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10,711</div>
+        <p class="stat-text">People are experiencing homelessness in Santa Clara County. 28% of them are women.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">64%</div>
+        <p class="stat-text">Of women in the US have reported problems affording menstrual products.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== MISSION / WHY ============== -->
+<section class="mission">
+  <div class="container">
+    <div class="mission-grid">
+      <aside class="mission-aside">
+        <span class="eyebrow">Why It Matters</span>
+        <h2>What changes when she has what she needs.</h2>
+        <p>Access to menstrual products lets people go to school, hold a job, and move through the world without interruption. Without them, that gets a lot harder.</p>
+        <blockquote class="mission-quote">
+          "A period should never be the reason someone misses school, skips work, or stays home."
+        </blockquote>
       </aside>
-      <div class="origin-body">
-        <p class="lede">In 2024, three sisters founded Inspire and Educate to address a need that wasn't being met.</p>
-        <p>Alexandra, Olivia, and Madelyne Dongnguyen were doing volunteer community service when they noticed something the food and clothing drives weren't reaching. Women came for food. They came for clothing. Some of them quietly asked for sanitary supplies.</p>
-        <p>That ask changed everything. The sisters realized that menstrual products, items most of us take for granted, were a silent and unmet need for thousands of women across the Bay Area. The mainstream community drives weren't designed to provide them, and the shame around asking made the problem invisible.</p>
-        <p>So they founded Inspire and Educate. Today, the organization works to provide equal access to menstrual health products to vulnerable populations across the Bay Area, raise awareness of period poverty, and improve quality of life for those in need.</p>
-      </div>
+
+      <ul class="why-list">
+        <li class="why-item">
+          <span class="why-num">01</span>
+          <div>
+            <h3>Lost Independence</h3>
+            <p>Without menstrual products, women cannot leave home. They lose mobility, miss work, and are unable to participate in society for days every month.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <span class="why-num">02</span>
+          <div>
+            <h3>Missed Education</h3>
+            <p>Affected youth miss school frequently, fall behind in their classwork, and feel isolated from their peers. Educational inequality compounds.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <span class="why-num">03</span>
+          <div>
+            <h3>Serious Health Risks</h3>
+            <p>Many women without hygiene products use the same tampon for dangerously long periods, putting them at risk of serious infection and toxic shock.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <span class="why-num">04</span>
+          <div>
+            <h3>Loss of Dignity</h3>
+            <p>Period poverty carries a profound emotional weight. Shame, anxiety, and a sense of invisibility compound the physical hardship.</p>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ============== MISSION CARD ============== -->
-<section>
+<!-- ============== CTA BAND ============== -->
+<section class="cta-band">
+  <span class="cta-band-deco cta-band-deco-1">“</span>
+  <span class="cta-band-deco cta-band-deco-2">”</span>
   <div class="container">
-    <div class="mission-card">
-      <span class="eyebrow">Our Mission</span>
-      <h2>To provide <em>equal access</em> to menstrual health products, raise awareness of period poverty, and improve the quality of life for those in need.</h2>
-    </div>
-  </div>
-</section>
-
-<!-- ============== TEAM ============== -->
-<section class="team">
-  <div class="container">
-    <div class="team-header">
-      <span class="eyebrow">The People Behind It</span>
-      <h2>Our Team</h2>
-      <p>A founding family, a board of medical and academic leaders, and an advisory council bringing decades of expertise to the cause.</p>
-    </div>
-
-    <!-- Founders -->
-    <div class="team-section">
-      <h3 class="team-section-title">Founders</h3>
-      <div class="team-grid">
-        <div class="team-card featured">
-          <div class="team-avatar">A</div>
-          <h3>Alexandra Dongnguyen</h3>
-          <span class="role">Co-Founder</span>
-        </div>
-        <div class="team-card featured">
-          <div class="team-avatar">O</div>
-          <h3>Olivia Dongnguyen</h3>
-          <span class="role">Co-Founder</span>
-        </div>
-        <div class="team-card featured">
-          <div class="team-avatar">M</div>
-          <h3>Madelyne Dongnguyen</h3>
-          <span class="role">Co-Founder</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Board of Directors -->
-    <div class="team-section">
-      <h3 class="team-section-title">Board of Directors</h3>
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="team-avatar">A</div>
-          <h3>Alexandra Dongnguyen</h3>
-          <span class="role">Director · Co-Founder</span>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">O</div>
-          <h3>Olivia Dongnguyen</h3>
-          <span class="role">Director · Co-Founder</span>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">M</div>
-          <h3>Madelyne Dongnguyen</h3>
-          <span class="role">Director · Co-Founder</span>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">D</div>
-          <h3>Diana V. Do, MD</h3>
-          <span class="role">Director</span>
-          <p class="bio">Professor of Ophthalmology and Vice Chair of Clinical Affairs at the Byers Eye Institute, Stanford University School of Medicine.</p>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">J</div>
-          <h3>Jennifer H. Do, MD</h3>
-          <span class="role">Director</span>
-          <p class="bio">Pediatrician at Sutter Health, California Pacific Medical Center.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Advisory Council -->
-    <div class="team-section">
-      <h3 class="team-section-title">Advisory Council</h3>
-      <div class="team-grid team-grid-2">
-        <div class="team-card">
-          <div class="team-avatar">T</div>
-          <h3>Teresa Nguyen Hung, JD</h3>
-          <span class="role">Advisor</span>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">D</div>
-          <h3>David Ni Xu, MD</h3>
-          <span class="role">Advisor</span>
-        </div>
+    <div class="cta-band-content">
+      <span class="eyebrow">Join Us</span>
+      <h2>A few good ways to help.</h2>
+      <p>Donate, volunteer, host a drive, or just spread the word. Every contribution keeps the supplies moving.</p>
+      <div class="hero-ctas" style="justify-content: center;">
+        <a href="get-involved.html#donate" class="btn btn-primary">Make a Donation <span class="btn-arrow">→</span></a>
+        <a href="get-involved.html#volunteer" class="btn btn-secondary">Volunteer With Us</a>
       </div>
     </div>
   </div>
@@ -428,6 +524,7 @@
 
 </main>
 
+<!-- ============== FOOTER ============== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
