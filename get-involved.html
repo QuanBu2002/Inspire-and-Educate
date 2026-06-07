@@ -206,6 +206,39 @@
   background: rgba(92, 34, 56, 0.15);
 }
 
+/* One-time / Monthly toggle */
+.give-toggle {
+  display: inline-flex;
+  background: var(--cream-deep);
+  border-radius: 100px;
+  padding: 4px;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.give-toggle-btn {
+  background: transparent;
+  border: none;
+  padding: 0.6rem 1.6rem;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.give-toggle-btn.active {
+  background: var(--wine);
+  color: var(--cream);
+}
+
+.give-toggle-btn:hover:not(.active) {
+  color: var(--wine);
+}
+
 /* Donate tiers */
 .tier-grid {
   display: grid;
@@ -528,41 +561,43 @@
       </div>
     </div>
 
-    <!-- Recurring callout -->
+    <!-- $5/month entry tier -->
     <div class="recurring-banner">
       <div class="recurring-banner-left">
-        <span class="recurring-badge">Recurring</span>
+        <span class="recurring-badge">Monthly</span>
         <h3>$5 a month</h3>
-        <p>Predictable support makes the biggest difference. A small recurring gift lets us plan ahead and keep supplies moving every single month.</p>
+        <p>A small monthly gift keeps supplies moving year-round.</p>
       </div>
       <div class="recurring-banner-right">
         <button class="btn btn-primary" style="background: var(--cream); color: var(--wine);">Give $5/month <span class="btn-arrow">→</span></button>
       </div>
     </div>
 
-    <div class="tier-divider">
-      <span>Or give once</span>
+    <!-- One-time / Monthly toggle -->
+    <div class="give-toggle" role="tablist">
+      <button class="give-toggle-btn active" data-mode="once" role="tab">One-time</button>
+      <button class="give-toggle-btn" data-mode="monthly" role="tab">Monthly</button>
     </div>
 
     <div class="tier-grid">
       <div class="tier">
         <div class="tier-amount">$25</div>
-        <h3>One Month</h3>
+        <h3 class="tier-label" data-once="One Month" data-monthly="$300/year">One Month</h3>
         <p class="tier-desc">Provides one month of menstrual products for a woman experiencing homelessness.</p>
-        <button class="btn btn-secondary" style="width: 100%; justify-content: center;">Give $25</button>
+        <button class="btn btn-secondary tier-btn" style="width: 100%; justify-content: center;" data-amount="25">Give $25</button>
       </div>
       <div class="tier featured">
         <span class="tier-badge">Most Impact</span>
         <div class="tier-amount">$75</div>
-        <h3>One Season</h3>
+        <h3 class="tier-label" data-once="One Season" data-monthly="$900/year">One Season</h3>
         <p class="tier-desc">Supplies three months of products for one woman, or a starter kit for a shelter family.</p>
-        <button class="btn" style="width: 100%; justify-content: center; background: var(--coral); color: var(--cream);">Give $75</button>
+        <button class="btn tier-btn" style="width: 100%; justify-content: center; background: var(--coral); color: var(--cream);" data-amount="75">Give $75</button>
       </div>
       <div class="tier">
         <div class="tier-amount">$200</div>
-        <h3>One Year</h3>
+        <h3 class="tier-label" data-once="One Year" data-monthly="$2,400/year">One Year</h3>
         <p class="tier-desc">Funds a full year of supplies for one person.</p>
-        <button class="btn btn-secondary" style="width: 100%; justify-content: center;">Give $200</button>
+        <button class="btn btn-secondary tier-btn" style="width: 100%; justify-content: center;" data-amount="200">Give $200</button>
       </div>
     </div>
 
@@ -752,6 +787,32 @@ document.querySelectorAll('.ways-tabs a').forEach((a, i) => {
   a.addEventListener('click', () => {
     tabs.forEach(t => t.classList.remove('active'));
     tabs[i].classList.add('active');
+  });
+});
+
+// One-time / Monthly toggle
+const giveToggleBtns = document.querySelectorAll('.give-toggle-btn');
+const tierBtns = document.querySelectorAll('.tier-btn');
+const tierLabels = document.querySelectorAll('.tier-label');
+
+giveToggleBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    giveToggleBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const mode = btn.dataset.mode;
+
+    tierBtns.forEach(b => {
+      const amount = b.dataset.amount;
+      if (mode === 'monthly') {
+        b.innerHTML = `Give $${amount}/month`;
+      } else {
+        b.innerHTML = `Give $${amount}`;
+      }
+    });
+
+    tierLabels.forEach(label => {
+      label.textContent = mode === 'monthly' ? label.dataset.monthly : label.dataset.once;
+    });
   });
 });
 </script>
