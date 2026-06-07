@@ -237,6 +237,55 @@
   max-width: 280px;
 }
 
+.cite-mark {
+  font-size: 0.7em;
+  vertical-align: super;
+  margin-left: 2px;
+}
+
+.cite-mark a {
+  color: var(--coral);
+  text-decoration: none;
+}
+
+.cite-mark a:hover {
+  text-decoration: underline;
+}
+
+.references {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(250, 243, 236, 0.15);
+  position: relative;
+}
+
+.references-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--blush);
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+
+.references-list {
+  list-style: decimal inside;
+  font-size: 0.8rem;
+  color: rgba(250, 243, 236, 0.6);
+  line-height: 1.7;
+  max-width: 800px;
+}
+
+.references-list li {
+  margin-bottom: 0.4rem;
+}
+
+.references-list a {
+  color: var(--coral);
+  text-decoration: underline;
+}
+
 /* Mission section */
 .mission {
   padding: 8rem 0;
@@ -390,7 +439,7 @@
           Simple &amp; <em>Necessary.</em>
         </h1>
         <p class="hero-lede">
-          A Bay Area nonprofit delivering menstrual products to the people who need them, quietly, consistently, every month.
+          A Bay Area nonprofit delivering menstrual supplies to people in need.
         </p>
         <div class="hero-ctas">
           <a href="get-involved.html#donate" class="btn btn-primary">
@@ -444,16 +493,26 @@
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-number">500M</div>
-        <p class="stat-text">Women and girls worldwide lack access to clean menstrual health products.</p>
+        <p class="stat-text">Women and girls worldwide lack access to clean menstrual health products.<sup class="cite-mark"><a href="#ref-1">1</a></sup></p>
       </div>
       <div class="stat-card">
         <div class="stat-number">10,711</div>
-        <p class="stat-text">People are experiencing homelessness in Santa Clara County. 28% of them are women.</p>
+        <p class="stat-text">People are experiencing homelessness in Santa Clara County. 28% of them are women.<sup class="cite-mark"><a href="#ref-2">2</a></sup></p>
       </div>
       <div class="stat-card">
         <div class="stat-number">64%</div>
-        <p class="stat-text">Of women in the US have reported problems affording menstrual products.</p>
+        <p class="stat-text">Of women in the US have reported problems affording menstrual products.<sup class="cite-mark"><a href="#ref-3">3</a></sup></p>
       </div>
+    </div>
+
+    <!-- References -->
+    <div class="references">
+      <h4 class="references-title">References</h4>
+      <ol class="references-list">
+        <li id="ref-1">The World Bank. <em>Menstrual hygiene management enables women and girls to reach their full potential.</em> 2018. <a href="https://www.worldbank.org/en/news/feature/2018/05/25/menstrual-hygiene-management" target="_blank" rel="noopener">worldbank.org</a></li>
+        <li id="ref-2">Santa Clara County. <em>Point-in-Time Count Community Report.</em> 2025.</li>
+        <li id="ref-3">Sebert Kuhlmann A, et al. Unmet Menstrual Hygiene Needs Among Low-Income Women. <em>Obstetrics &amp; Gynecology</em>. 2019;133(2):238-244.</li>
+      </ol>
     </div>
   </div>
 </section>
@@ -467,7 +526,7 @@
         <h2>What changes when she has what she needs.</h2>
         <p>Access to menstrual products lets people go to school, hold a job, and move through the world without interruption. Without them, that gets a lot harder.</p>
         <blockquote class="mission-quote">
-          "A period should never be the reason someone misses school, skips work, or stays home."
+          A period should never be the reason someone misses school, skips work, or stays home.
         </blockquote>
       </aside>
 
