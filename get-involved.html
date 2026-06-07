@@ -123,6 +123,89 @@
   font-size: 1.1rem;
 }
 
+/* Recurring donation banner */
+.recurring-banner {
+  background: linear-gradient(135deg, var(--wine) 0%, var(--wine-soft) 100%);
+  color: var(--cream);
+  border-radius: 24px;
+  padding: 2.5rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.recurring-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 133, 123, 0.25) 0%, transparent 70%);
+}
+
+.recurring-banner-left {
+  position: relative;
+  z-index: 2;
+}
+
+.recurring-banner-right {
+  position: relative;
+  z-index: 2;
+}
+
+.recurring-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  background: var(--coral);
+  color: var(--cream);
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  margin-bottom: 0.75rem;
+}
+
+.recurring-banner h3 {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--cream);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.recurring-banner p {
+  color: rgba(250, 243, 236, 0.85);
+  max-width: 480px;
+  font-size: 0.95rem;
+}
+
+.tier-divider {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 0 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-soft);
+}
+
+.tier-divider::before,
+.tier-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(92, 34, 56, 0.15);
+}
+
 /* Donate tiers */
 .tier-grid {
   display: grid;
@@ -385,6 +468,7 @@
 @media (max-width: 900px) {
   .action-header { grid-template-columns: 1fr; gap: 1rem; }
   .action-num { font-size: 5rem; }
+  .recurring-banner { grid-template-columns: 1fr; padding: 2rem; gap: 1.5rem; }
   .tier-grid { grid-template-columns: 1fr; }
   .donate-form { grid-template-columns: 1fr; }
   .volunteer-grid { grid-template-columns: 1fr; }
@@ -417,7 +501,7 @@
   <div class="container">
     <span class="eyebrow">Take Action</span>
     <h1>A few ways to <em>help</em>.</h1>
-    <p>From five dollars to five hours, there are good ways to help. Pick what fits. Every contribution keeps supplies moving to someone who needs them.</p>
+    <p>From five dollars to a few hours, there are good ways to help. Pick what fits. Every contribution keeps supplies moving to someone who needs them.</p>
   </div>
 </section>
 
@@ -442,6 +526,22 @@
         <h2>Donate</h2>
         <p>Every dollar goes directly toward purchasing menstrual products for women and girls in need across the Bay Area.</p>
       </div>
+    </div>
+
+    <!-- Recurring callout -->
+    <div class="recurring-banner">
+      <div class="recurring-banner-left">
+        <span class="recurring-badge">Recurring</span>
+        <h3>$5 a month</h3>
+        <p>Predictable support makes the biggest difference. A small recurring gift lets us plan ahead and keep supplies moving every single month.</p>
+      </div>
+      <div class="recurring-banner-right">
+        <button class="btn btn-primary" style="background: var(--cream); color: var(--wine);">Give $5/month <span class="btn-arrow">→</span></button>
+      </div>
+    </div>
+
+    <div class="tier-divider">
+      <span>Or give once</span>
     </div>
 
     <div class="tier-grid">
