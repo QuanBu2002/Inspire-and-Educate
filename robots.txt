@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lustrous-hamster-fabafc.netlify.app/sitemap.xml
