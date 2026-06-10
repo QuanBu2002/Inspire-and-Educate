@@ -1,6 +1,6 @@
 # Citation Register
 
-This register is the source-of-truth list for public factual claims on the Inspire & Educate website. Do not add a statistic, health-risk statement, or epidemiologic claim to the site unless it is mapped here and cited inline on the relevant page.
+This register is the source-of-truth list for public factual claims on the Inspire & Educate website. Do not add a statistic, health-risk statement, epidemiologic claim, education/work-outcome claim, homelessness statistic, or medical/safety statement to the site unless it is mapped here and cited inline on the relevant page.
 
 ## Homepage references
 
@@ -24,17 +24,26 @@ Citation text for site:
 
 URL: https://osh.santaclaracounty.gov/continuum-care/reports-and-publications/point-time-count
 
-Required rule: if the statistic says `10,711` or `28% female`, those values must appear in the exact county report being cited. If not verified, remove the number or soften the sentence.
+Required rule: if the statistic says `10,711`, `28% female`, `16% families with children`, or `3% unaccompanied youth and young adults under 25`, those values must appear in the exact county report being cited. If not verified, remove the number or soften the sentence.
 
 ### 3. Sebert Kuhlmann et al. — unmet menstrual hygiene needs
 
-Use for peer-reviewed claims about affordability problems, unmet menstrual hygiene needs, and low-income populations.
+Use for peer-reviewed claims about affordability problems, unmet menstrual hygiene needs, improvised substitutes, school/work/social consequences, and low-income populations.
+
+Approved site claims supported by this source:
+
+- `64%` of low-income women reported being unable to afford menstrual hygiene products during the previous year.
+- `21%` of low-income women reported lacking money to buy menstrual products at least monthly.
+- Low-income women reported using improvised alternatives when menstrual products were unaffordable.
+- Unmet menstrual hygiene needs were associated with reduced participation in daily life, including school, work, and social activities.
 
 Citation text for site:
 
 > Sebert Kuhlmann A, Peters Bergquist E, Danjoint D, Wall LL. Unmet menstrual hygiene needs among low-income women. *Obstetrics & Gynecology.* 2019;133(2):238-244. doi:10.1097/AOG.0000000000003060.
 
 URL: https://doi.org/10.1097/AOG.0000000000003060
+
+Required wording rule: do not write `21% of women` or `64% of women` without the qualifier `low-income women`, unless a broader source is added. The study population is low-income women.
 
 ### 4. U.S. FDA — tampon safety and toxic shock syndrome
 
@@ -46,10 +55,22 @@ Citation text for site:
 
 URL: https://www.fda.gov/consumers/consumer-updates/facts-tampons-and-how-use-them-safely
 
+Required wording rule: cite this source for tampon safety claims. Do not overstate beyond FDA safety language.
+
+## Whole-site citation audit targets
+
+Audit these pages before launch:
+
+1. `index.html` — homepage statistics, school/work/mobility statements, substitutes for menstrual products, and tampon safety language.
+2. `about.html` — origin-story facts usually do not need external citations, but any public statistics or outcome claims do.
+3. `get-involved.html` — donation impact claims such as `one month`, `three months`, `one year`, product-kit estimates, and any dollar-to-product conversion claims need either internal budget support or softer non-quantified wording.
+4. `contact.html` — FAQ claims about tax deductibility, nonprofit status, service area, partnerships, and product handling need verification before launch.
+
 ## Site citation rules
 
-1. Every public statistic gets a numbered superscript citation.
-2. Every medical or safety statement gets a numbered superscript citation.
+1. Every public statistic gets a numbered superscript citation on the same page.
+2. Every medical or safety statement gets a numbered superscript citation on the same page.
 3. Mission statements, origin story, team information, and donation CTAs do not need external citations unless they include a factual public claim.
 4. If a claim cannot be verified, remove it or rewrite it as a general statement.
 5. The reference list belongs on the page where the claims appear, not only in this file.
+6. Avoid citing a source because it is adjacent in the document; cite only if the exact source supports the exact claim.
