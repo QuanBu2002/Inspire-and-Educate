@@ -270,6 +270,14 @@ main {
 /* ============================================================================
    Homepage overrides
    ========================================================================== */
+body .hero::before {
+  background-image: url('/logo-flower.svg'), radial-gradient(circle at 40% 40%, var(--blush) 0%, var(--cream) 70%) !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-position: center, center !important;
+  background-size: 54%, cover !important;
+  opacity: 0.72 !important;
+}
+
 .hero-stat-label {
   display: none !important;
 }
@@ -280,20 +288,7 @@ main {
 }
 
 .hero-stat-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/logo-flower.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 76%;
-  opacity: 0.22;
-  pointer-events: none;
-}
-
-.hero-stat-card > * {
-  position: relative;
-  z-index: 1;
+  display: none !important;
 }
 
 /* ============================================================================
