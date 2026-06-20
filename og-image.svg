@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Inspire &amp; Educate social preview</title>
+  <desc id="desc">Social preview card with I and E monogram and nonprofit information.</desc>
+  <defs>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#faf3ec"/>
+      <stop offset="100%" stop-color="#f3d8d2"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5c2238"/>
+      <stop offset="100%" stop-color="#d4634f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#card)"/>
+  <circle cx="1050" cy="-60" r="260" fill="#e8857b" opacity="0.22"/>
+  <circle cx="120" cy="560" r="220" fill="#d4634f" opacity="0.12"/>
+  <rect x="76" y="74" width="1048" height="482" rx="42" fill="#fffaf4" stroke="#5c2238" stroke-opacity="0.10" stroke-width="2"/>
+  <rect x="126" y="160" width="190" height="190" rx="48" fill="url(#mark)"/>
+  <text x="221" y="277" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="700" fill="#faf3ec" letter-spacing="-4">I&amp;E</text>
+  <text x="370" y="212" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="700" fill="#5c2238">Inspire &amp; Educate</text>
+  <text x="374" y="284" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#6d5260">A Bay Area 501(c)(3) nonprofit</text>
+  <text x="374" y="334" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#6d5260">Providing menstrual health products to vulnerable populations</text>
+  <text x="374" y="418" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#d4634f" letter-spacing="2">EIN 39-5020933 · inspireandeducate.org</text>
+</svg>
