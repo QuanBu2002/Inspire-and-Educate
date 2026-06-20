@@ -22,3 +22,13 @@
   from = "/contact"
   to = "/contact.html"
   status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/donation-policy"
+  to = "/donation-policy.html"
+  status = 200
