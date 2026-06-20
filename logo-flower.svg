@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Inspire &amp; Educate floral mark</title>
+  <desc id="desc">A simple translucent coral flower mark with thin overlapping petals.</desc>
+  <defs>
+    <radialGradient id="fade" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#faf3ec" stop-opacity="0.92"/>
+      <stop offset="58%" stop-color="#faf3ec" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#faf3ec" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(256 256)">
+    <ellipse cx="0" cy="-118" rx="32" ry="116" fill="#f8d5c8" opacity="0.70"/>
+    <ellipse cx="0" cy="-118" rx="32" ry="116" fill="#e8857b" opacity="0.70" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-118" rx="32" ry="116" fill="#f8d5c8" opacity="0.70" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-118" rx="32" ry="116" fill="#e8857b" opacity="0.70" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-118" rx="32" ry="116" fill="#f8d5c8" opacity="0.70" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-118" rx="32" ry="116" fill="#e8857b" opacity="0.70" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-118" rx="32" ry="116" fill="#f8d5c8" opacity="0.70" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-118" rx="32" ry="116" fill="#e8857b" opacity="0.70" transform="rotate(315)"/>
+    <circle r="64" fill="url(#fade)"/>
+  </g>
+</svg>
