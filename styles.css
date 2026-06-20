@@ -125,18 +125,25 @@ a {
   letter-spacing: -0.02em;
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.6rem;
 }
 
 .nav-logo-mark {
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
+  background: var(--coral);
+  border-radius: 50%;
+  position: relative;
   display: inline-block;
-  flex: 0 0 34px;
-  background-image: url('/logo-flower.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  flex: 0 0 28px;
+}
+
+.nav-logo-mark::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  background: var(--cream);
+  border-radius: 50%;
 }
 
 .nav-links {
